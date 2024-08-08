@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Clés</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffc107;
+            border: none;
+            cursor: pointer;
+        }
+        #keys {
+            margin-top: 20px;
+        }
+        .key {
+            margin: 5px;
+            padding: 10px;
+            background-color: #e1e1e1;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Générateur de Clés</h1>
+    <label for="numKeys">Nombre de clés à générer :</label>
+    <input type="number" id="numKeys" value="1" min="1">
+    <br><br>
+    <button onclick="generateKeys()">Générer les Clés</button>
+    <div id="keys"></div>
+
+    <script>
+        function generateKeys() {
+            const numKeys = document.getElementById('numKeys').value;
+            const keysDiv = document.getElementById('keys');
+            keysDiv.innerHTML = '';
+            for (let i = 0; i < numKeys; i++) {
+                const key = 'CLONE-' + Math.random().toString(36).substr(2, 8).toUpperCase();
+                const keyElement = document.createElement('div');
+                keyElement.className = 'key';
+                keyElement.textContent = key;
+                keysDiv.appendChild(keyElement);
+            }
+        }
+    </script>
+
+</body></html>
